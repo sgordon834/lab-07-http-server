@@ -1,0 +1,25 @@
+{
+  "name": "lab-07-http-server",
+  "version": "1.0.0",
+  "description": "![cf](https://i.imgur.com/7v5ASc8.png) Lab 07: Vanilla HTTP Server ======",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgordon834/lab-07-http-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgordon834/lab-07-http-server/issues"
+  },
+  "homepage": "https://github.com/sgordon834/lab-07-http-server#readme",
+  "devDependencies": {
+    "expect": "^21.2.1",
+    "mocha": "^4.0.1"
+  }
+}
