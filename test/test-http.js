@@ -2,6 +2,7 @@
 
 const expect = require('expect');
 const request = require('superagent');
+const cowsay = require('cowsay');
 
 const server = require('../_server');
 
@@ -22,7 +23,7 @@ describe('our first http server', function() {
       .get(host + '/')
       .end((err, res) => {
         expect(err).toBe(null);
-        expect(res.text).toBe('Hi!');
+        expect(res.text).toBe(cowsay.say({text: 'Hi!', f: 'Ghostbusters'}));
         done();
       });
   });
@@ -30,29 +31,29 @@ describe('our first http server', function() {
 
   it('should process query params', function(done) {
     request
-      .get(host + '/cowsay?test=test')
+      .get(host + '/cowsay?text=test')
       .end((err, res) => {
         expect(err).toBe(null);
-        expect(res.text).toBe('test=test');
+        expect(res.text).toBe(cowsay.say({text: 'test'}));
         done();
       });
   });
 
   it('should process json', function(done) {
     request
-      .post(host + '/')
-      .send({test: 'hello test'})
+      .post(host + '/cowsay')
+      .send({text: 'hello test'})
       .end((err, res) => {
         expect(err).toBe(null);
-
-        expect(res.text).toBe('got the JSON');
+        
+        expect(res.text).toBe('got the json');
         done();
       });
   });
 
   it('should error on bad JSON', function(done) {
     request
-      .post(host + '/')
+      .post(host + '/cowsay')
       .send('{"bad":"json')
       .end((err, res) => {
         expect(err).not.toBe(null);
