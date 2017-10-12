@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,8 @@
     "expect": "^21.2.1",
     "mocha": "^4.0.1",
     "superagent": "^3.6.3"
+  },
+  "dependencies": {
+    "cowsay": "^1.2.1"
   }
 }

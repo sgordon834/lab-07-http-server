@@ -22,7 +22,7 @@ describe('our first http server', function() {
       .get(host + '/')
       .end((err, res) => {
         expect(err).toBe(null);
-        expect(res.text).toBe('such GET, much request');
+        expect(res.text).toBe('Hi!');
         done();
       });
   });
@@ -30,7 +30,7 @@ describe('our first http server', function() {
 
   it('should process query params', function(done) {
     request
-      .get(host + '/query?test=test')
+      .get(host + '/cowsay?test=test')
       .end((err, res) => {
         expect(err).toBe(null);
         expect(res.text).toBe('test=test');
